@@ -1,5 +1,6 @@
 package FileOrganizer;
 
+import IO.LoadConfig;
 import IO.PrepareIO;
 
 public class Manager
@@ -9,11 +10,12 @@ public class Manager
 	
 	public Manager()
 	{
-		
+		prepIO = new PrepareIO();
 	}
 	
 	public void begin()
 	{
-		
+		LoadConfig loadConfig = new LoadConfig();
+		loadConfig.loadParams();
 	}
 }
