@@ -5,6 +5,9 @@ import java.util.HashMap;
 
 public class ConfigData
 {
+	//FUGLY CLASS
+	private static String configLoc;
+	
 	private static String locVideo; // Videos
 	private static String locMusic; // Music
 	private static String locPics; // Pictures
@@ -24,6 +27,16 @@ public class ConfigData
 
 	private static HashMap<String, String> extHashMap;
 
+	public static void setConfigLoc(String _configLoc)
+	{
+		configLoc = _configLoc;
+	}
+	
+	public static String getConfigLoc()
+	{
+		return configLoc;
+	}
+	
 	public static void addDirToCheck(String dirToCheck)
 	{
 		dirsToCheck.add(dirToCheck);
@@ -199,7 +212,6 @@ public class ConfigData
 		{
 			extHashMap.put(s, destination);
 		}
-		//System.out.println(destination);
 	}
 
 	public static String getLocation(String name)

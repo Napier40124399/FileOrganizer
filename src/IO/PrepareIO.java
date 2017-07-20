@@ -1,8 +1,6 @@
 package IO;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -41,7 +39,6 @@ public class PrepareIO
 		File directory = new File(dir);
 		for (File f : directory.listFiles())
 		{
-			// System.out.println(f.getName());
 			move(f, ConfigData.getLocation(f.getName()));
 		}
 	}

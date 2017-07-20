@@ -2,7 +2,6 @@ package IO;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,6 +22,7 @@ public class LoadConfig
 
 	public static void loadParams()
 	{
+		ConfigData.setConfigLoc(configPath);
 		if (!PrepareIO.checkFile(configPath, false))
 		{
 			generateConfig();

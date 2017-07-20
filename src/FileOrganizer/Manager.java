@@ -13,11 +13,11 @@ public class Manager
 	{
 		loadConfig = new LoadConfig();
 		prepIO = new PrepareIO();
+		loadConfig.loadParams();
 	}
 	
 	public void begin()
 	{
-		loadConfig.loadParams();
 		prepIO.iterateDirs();
 	}
 }
