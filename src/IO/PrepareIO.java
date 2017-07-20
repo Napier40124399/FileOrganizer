@@ -4,17 +4,13 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class PrepareIO
 {
-	private static String configPath;
-
 	public PrepareIO()
 	{
-		configPath = System.getProperty("user.home") + "\\AppData\\Roaming\\FileOrganizer\\";
-		// System.out.println(System.getProperty("user.home")+" --
-		// "+System.getenv("APPDATA"));
-		System.out.println(configPath);
 	}
 
 	public static boolean checkFile(String filePath, boolean buildIfAbsent)
@@ -32,35 +28,37 @@ public class PrepareIO
 		return f.exists();
 	}
 
-	public static void makeThing(String filePath)
+	public static void iterateDirs()
 	{
-		BufferedReader br = null;
-		FileReader fr = null;
-		try
+		for (String dir : ConfigData.getDirsToCheck())
 		{
-			String sCurrentLine;
-			br = new BufferedReader(new FileReader(filePath));
-
-			while ((sCurrentLine = br.readLine()) != null)
-			{
-				System.out.println(sCurrentLine);
-			}
-
+			checkDir(dir);
 		}
-		catch (IOException e){}
-		finally
+	}
+
+	private static void checkDir(String dir)
+	{
+		File directory = new File(dir);
+		for (File f : directory.listFiles())
+		{
+			// System.out.println(f.getName());
+			move(f, ConfigData.getLocation(f.getName()));
+		}
+	}
+
+	public static void move(File file, String destination)
+	{
+		File dest = new File(destination+"\\"+file.getName());
+		if (!dest.exists())
 		{
 			try
 			{
-				if (br != null)
-					br.close();
-				if (fr != null)
-					fr.close();
-			} catch (IOException ex)
+				Files.createDirectories(Paths.get(destination));
+			} catch (IOException e)
 			{
-				ex.printStackTrace();
+				e.printStackTrace();
 			}
-
 		}
+		file.renameTo(dest);
 	}
 }

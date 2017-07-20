@@ -7,15 +7,17 @@ public class Manager
 {
 	//Instances
 	private PrepareIO prepIO;
+	private LoadConfig loadConfig;
 	
 	public Manager()
 	{
+		loadConfig = new LoadConfig();
 		prepIO = new PrepareIO();
 	}
 	
 	public void begin()
 	{
-		LoadConfig loadConfig = new LoadConfig();
 		loadConfig.loadParams();
+		prepIO.iterateDirs();
 	}
 }
