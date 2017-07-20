@@ -18,8 +18,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
+import DataStore.ConfigData;
 import FileOrganizer.Manager;
-import IO.ConfigData;
 
 public class TrayGUI
 {

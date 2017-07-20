@@ -10,6 +10,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Properties;
 
+import DataStore.ConfigData;
+
 public class LoadConfig
 {
 	private static String configPath;
