@@ -74,7 +74,7 @@ public class TrayGUI
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				JOptionPane.showMessageDialog(null, "This dialog box is run from System Tray");
+				JOptionPane.showMessageDialog(null, "TODO: Window pop-up and GUI."); // TODO
 			}
 		});
 
@@ -82,7 +82,7 @@ public class TrayGUI
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				JOptionPane.showMessageDialog(null, "This dialog box is run from the About menu item");
+				JOptionPane.showMessageDialog(null, "Written by James F. Taylor\nContact: JamesFTaylorWork@gmail.com");
 			}
 		});
 
@@ -93,6 +93,7 @@ public class TrayGUI
 				int cb1Id = e.getStateChange();
 				if (cb1Id == ItemEvent.SELECTED)
 				{
+					start();
 					timer.start();
 				} else
 				{
